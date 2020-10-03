@@ -1,14 +1,18 @@
-void setup() {
-  pinMode(5, OUTPUT);
+#define LED_PIN 7
+#define TIME_DELAY 100
 
+
+void setup() {
+  pinMode(LED_PIN, OUTPUT);
+  
   
 }
 
 void loop() {
-   digitalWrite(5, HIGH);
-   delay(200);
-   digitalWrite(5, LOW);
-   delay(200);
+   digitalWrite(LED_PIN, HIGH);
+   delay(TIME_DELAY);
+   digitalWrite(LED_PIN, LOW);
+   delay(TIME_DELAY);
  
  
 }
