@@ -5,19 +5,26 @@
 #define TERM_DIFF 273.15
 #define T0 25 + TERM_DIFF
 #define B 3950
+#define SAMPLES 5.0
 void setup() {
   Serial.begin(9600); 
 
 }
 
-int adc_signal = 0;
+float adc_signal = 0.0;
+int adc_sum = 0;
 float adc_to_volt = 0.0;
 float tr = 0.0;
 float k_temperature = 0;
 float c_temperature = 0;
 
 void loop() {
-  adc_signal = analogRead(THERMO_PIN);
+  for (int i = 0; i < SAMPLES; i++){
+      adc_summ = 0;
+      adc_signal += analogRead(THERMO_PIN);
+      delay(20);
+    }
+  adc_signal = adc_sum / SAMPLES;
   adc_to_volt = U_SOURCE / 1023 * adc_signal;
   tr = R * (1023 / adc_signal - 1); 
   k_temperature = T0 * B / (B + T0*log(tr/R0));
